@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Story Generator</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      padding: 40px;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    input, button {
+      font-size: 1rem;
+      padding: 8px;
+      margin-top: 10px;
+    }
+
+    #story {
+      margin-top: 30px;
+      background: white;
+      padding: 20px;
+      border-left: 5px solid #6a5acd;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Story Generator</h1>
+  <p>Enter your name to begin your awesome adventure:</p>
+
+  <input type="text" id="username" placeholder="Enter your name here">
+  <button onclick="generateStory()">Create Story</button>
+
+  <div id="story"></div>
+
+  <script>
+    function generateStory() {
+      const name = document.getElementById("username").value.trim();
+
+      if (name === "") {
+        alert("Please enter your name.");
+        return;
+      }
+
+      const story = `
+        Once upon a time, in the magical halls of the University of Awesome, there was a brilliant student named <strong>${name}</strong>.
+        Known for their curiosity and a backpack full of snacks, ${name} accidentally discovered a new element during a chemistry experiment:
+        <em>Snackonium</em>.
+
+        Dr. Eleanor Gaye, the head of the science faculty, was impressed. "This is the most delicious discovery we've ever made!" she said.
+
+        ${name} was awarded the title "Snack Scientist of the Year" and went on to invent edible robots that danced like chickens.
+
+        And from that day on, ${name}'s name was written in the stars... and on the cafeteria menu.
+      `;
+
+      document.getElementById("story").innerHTML = story;
+    }
+  </script>
+
+</body>
+</html>
